@@ -81,6 +81,7 @@ local theBall
 
 local questionsAnswered = 0
 
+
 -----------------------------------------------------------------------------------------
 -- LOCAL SCENE FUNCTIONS
 ----------------------------------------------------------------------------------------- 
@@ -200,7 +201,7 @@ local function onCollision( self, event )
             (event.target.myName == "spikes3") then
 
             --Pop sound
-        popSoundChannel = audio.play(popSound)
+            popSoundChannel = audio.play(popSound)
 
             -- remove runtime listeners that move the character
             RemoveArrowEventListeners()
@@ -249,11 +250,10 @@ local function onCollision( self, event )
         if (event.target.myName == "door") then
             --check to see if the user has answered 3 questions
             if (questionsAnswered == 3) then
-                timer.performWithDelay(200, YouWinTransition) 
-            elseif door.isVisible == true
+                -- after getting 3 questions right, go to the you win screen
+                timer.performWithDelay(200, YouWinTransition)
             end
         end        
-
     end
 end
 

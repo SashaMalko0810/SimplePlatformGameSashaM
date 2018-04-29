@@ -17,7 +17,7 @@ local widget = require( "widget" )
 -----------------------------------------------------------------------------------------
 
 -- Naming Scene
-sceneName = "you_lose"
+sceneName = "you_win"
 
 -----------------------------------------------------------------------------------------
 
@@ -32,8 +32,8 @@ local scene = composer.newScene( sceneName )
 local bkg
 
 --Sounds
-local loseSound = audio.loadSound("Sounds/YouLose.mp3")
-local loseSoundChannel
+local winSound = audio.loadSound("Sounds/Cheer.m4a")
+local winSoundChannel
 
 ----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
@@ -48,7 +48,7 @@ function scene:create( event )
     local sceneGroup = self.view
 
     -- Display background
-    bkg = display.newImage("Images/YouLose.png")
+    bkg = display.newImage("Images/YouWin.png")
     bkg.x = display.contentCenterX
     bkg.y = display.contentCenterY
     bkg.width = display.contentWidth
@@ -89,8 +89,8 @@ function scene:show( event )
         -- Example: start timers, begin animation, play audio, etc.
 
         --play the sound effect
-        loseSoundChannel = audio.play(loseSound)
-        
+        winSoundChannel = audio.play(winSound)
+
     end
 
 end
