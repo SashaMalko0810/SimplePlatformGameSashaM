@@ -249,7 +249,7 @@ local function onCollision( self, event )
 
         if (event.target.myName == "door") then
             --check to see if the user has answered 3 questions
-            if (questionsAnswered == 3) then
+            if (questionsAnswered > 3) then
                 -- after getting 3 questions right, go to the you win screen
                 timer.performWithDelay(200, YouWinTransition)
             end
