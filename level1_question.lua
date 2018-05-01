@@ -48,7 +48,7 @@ local wrongAnswerText1
 local wrongAnswerText2
 local wrongAnswerText3
 
-local answerPosition = 1
+local answerPosition 
 local bkg
 local cover
 
@@ -163,8 +163,8 @@ end
 
 local function PositionAnswers()
 
-    --creating random start position in a cretain area
-    answerPosition = math.random(1,3)
+    --creating random start position in a certain area
+    answerPosition = math.random(1,4)
 
     if (answerPosition == 1) then
 
@@ -172,27 +172,27 @@ local function PositionAnswers()
         answerText.y = Y1
         
         wrongText1.x = X2
-        wrongText1.y = Y1
+        wrongText1.y = Y2
         
         wrongText2.x = X1
         wrongText2.y = Y2
 
         wrongText3.x = X2
-        wrongText3.y = Y2
+        wrongText3.y = Y1
         
     elseif (answerPosition == 2) then
 
-        answerText.x = X1
+        answerText.x = X2
         answerText.y = Y2
             
         wrongText1.x = X1
         wrongText1.y = Y1
             
         wrongText2.x = X2
-        wrongText2.y = Y2
+        wrongText2.y = Y1
 
-        wrongText3.x = X2
-        wrongText3.y = Y1
+        wrongText3.x = X1
+        wrongText3.y = Y2
 
 
     elseif (answerPosition == 3) then
@@ -200,14 +200,30 @@ local function PositionAnswers()
         answerText.x = X2
         answerText.y = Y1
             
-        wrongText1.x = X2
+        wrongText1.x = X1
         wrongText1.y = Y2
+            
+        wrongText2.x = X2
+        wrongText2.y = Y2
+
+        wrongText3.x = X1
+        wrongText3.y = Y1  
+
+
+    elseif (answerPosition == 4) then
+
+        answerText.x = X1
+        answerText.y = Y2
+            
+        wrongText1.x = X2
+        wrongText1.y = Y1
             
         wrongText2.x = X1
         wrongText2.y = Y1
 
-        wrongText3.x = X1
-        wrongText3.y = Y2      
+        wrongText3.x = X2
+        wrongText3.y = Y2  
+
     end
 end
 
@@ -237,13 +253,13 @@ function scene:create( event )
     questionText = display.newText("", display.contentCenterX, display.contentCenterY*3/8, Arial, 75)
 
     -- create the answer text object & wrong answer text objects
-    answerText = display.newText("", X1, Y2, Arial, 75)
+    answerText = display.newText("", X1, Y1, Arial, 75)
     answerText.anchorX = 0
     wrongText1 = display.newText("", X2, Y2, Arial, 75)
     wrongText1.anchorX = 0
-    wrongText2 = display.newText("", X1, Y1, Arial, 75)
+    wrongText2 = display.newText("", X2, Y1, Arial, 75)
     wrongText2.anchorX = 0
-    wrongText3 = display.newText("", X2, Y1, Arial, 75)
+    wrongText3 = display.newText("", X1, Y2, Arial, 75)
     wrongText3.anchorX = 0
 
 
