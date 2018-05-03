@@ -240,8 +240,6 @@ local function onCollision( self, event )
             -- make the character invisible
             character.isVisible = false
 
-            print ("***calling show overlay")
-
             -- show overlay with math question
             composer.showOverlay( "level1_question", { isModal = true, effect = "fade", time = 100})
 
@@ -250,12 +248,8 @@ local function onCollision( self, event )
         end
 
         if (event.target.myName == "door") then
-
-            print ("***Collided with door")
-            print ("***questionsAnswered = " .. questionsAnswered)
-
             --check to see if the user has answered 3 questions
-            if (questionsAnswered > 3) then
+            if (questionsAnswered == 3) then
                 -- after getting 3 questions right, go to the you win screen
                 timer.performWithDelay(200, YouWinTransition)
             end
